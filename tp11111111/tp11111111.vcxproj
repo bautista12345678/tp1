@@ -139,13 +139,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="centrega.cpp" />
     <ClCompile Include="cJefe.cpp" />
     <ClCompile Include="cProgramador.cpp" />
-    <ClCompile Include="tp11111111.cpp" />
+    <ClCompile Include="cproyecto.cpp" />
+    <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="centrega.h" />
     <ClInclude Include="cJefe.h" />
     <ClInclude Include="cProgramador.h" />
+    <ClInclude Include="cproyecto.h" />
+    <ClInclude Include="EnumEtapaDeProyecto.h" />
+    <ClInclude Include="EnumEstadoDeProyecto.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
