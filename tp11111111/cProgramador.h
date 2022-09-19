@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 #include <ctime>
+#include "cproyecto.h"
 using namespace std;
 class cProgramador
 {
@@ -10,19 +11,21 @@ private:
 	string apellido;
 	tm fecha_de_nacimiento;
 	string telefono;
+	cJefe* Jefe;
 	bool horario;//true:fulltime , false:parttime
-	//cproyecto **lista_proyectos;
+	cproyecto **lista_proyectos;
 public:
 	cProgramador(string _nombre, string _apellido, tm _fecha_de_nacimiento, string _telefono,bool 
-	_horario);
+	_horario, cJefe* _Jefe);
 	~cProgramador();
-	//void AsignarProyecto(cproyecto * pro);
-	//void EntregarProyecto(centrega* entr);
-	//cproyecto FinProyecto(cproyecto*pro);
+	void AsignarProyecto(cproyecto * pro);
+	void EntregarProyecto(centrega* entr, cproyecto* pro);
+	cproyecto FinProyecto(cproyecto*pro);
 	void imprimir();
 	string to_string();
 	void setnombre(string _nombre);
 	string getnombre();
+	void setJefe(cJefe* _Jefe);
 	void setapellido(string _apellido);
 	string getapellido();
 	void setfecha_de_nacimiento(tm _fecha);
@@ -31,8 +34,8 @@ public:
 	string gettelefono();
 	void sethorario(bool _horario);
 	bool gethorario();
-	//void setlista_proyectos(cproyectos **_lista_proyectos);
-	//cproyectos getlista_proyectos();
+	void setlista_proyectos(cproyecto **_lista_proyectos);
+	cproyecto getlista_proyectos();
 
 };
 

@@ -2,6 +2,10 @@
 #include <iostream>
 #include <string>
 #include <ctime>
+#include "cProgramador.h"
+#include "cproyecto.h"
+#include "cJefe.h"
+#include "centrega.h"
 using namespace std;
 
 class cJefe
@@ -12,10 +16,10 @@ private:
 	string telefono;
 	string DNI;
 	bool disponible;
-	//cproyectos** listaDeProyectos;
+	cproyecto ** listaDeProyectos;
 	int CantidadMaximaDeProyectos;
 	int CantidadActualDeProyectos;
-	//cProgramadores **listaDeProgramadores;
+	cProgramador **listaDeProgramadores;
 public:
 	cJefe(string _nombre, string _apellido, string _DNI, string _telefono, bool
 		_disponible,int _CantidadMaximaDeProyectos, int _CantidadActualDeProyectos);
@@ -30,20 +34,18 @@ public:
 	string getDNI();
 	void setdisponible(bool _disponible);
 	bool getdisponible();
-	//void setlistaDeProyectos(cproyectos **_listaDeProyectos);
-	//cproyectos getlistaDeProyectos();
+	void setlistaDeProyectos(cproyecto **_listaDeProyectos);
 	void setCantidadMaximaDeProyectos(int _CantidadMaximaDeProyectos);
 	int getCantidadMaximaDeProyectos();
 	void setCantidadActualDeProyectos(int _CantidadActualDeProyectos);
 	int getCantidadActualDeProyectos();
-	//void setlistaDeProgramadores(cProgramadores **_listaDeProgramadores);
-	//cProgramadores getlistaDeProgramadores();
+	void setlistaDeProgramadores(cProgramador **_listaDeProgramadores);
 	void imprimir();
 	string to_string();
-	//void AsignarProyecto(cproyecto* pro);
-	//void ReasignarProgramador(Jefe*j);
-	//void RevisarEntrega(cproyecto * pro);
-	//cproyecto FinProyecto();
-	//void CambiarFechaFin(tm fe,cproyecto * pro);
+	void AsignarProyecto(cproyecto* pro);
+	void ReasignarProgramador(cJefe*j, cProgramador* progra);
+	void RevisarEntrega(cproyecto * pro, centrega* ent);
+	cproyecto FinProyecto();
+	void CambiarFechaFin(tm fe,cproyecto * pro);
 };
 

@@ -1,6 +1,6 @@
-#include "Centrega.h"
+#include "centrega.h"
 
-Centrega::Centrega()
+centrega::centrega()
 {
 
 	this->NumeroDeEtapa = EtapaDelProyecto::ETAPA_CERO;
@@ -9,15 +9,15 @@ Centrega::Centrega()
 	this->CantidadDeEntregas = 0;
 }
 
-Centrega::~Centrega()
+centrega::~centrega()
 {
 }
 
-void Centrega::actualizar(Cjefe* jefe)
+void centrega::actualizar(cJefe* jefe)
 {
 }
 
-void Centrega::establecerFechaDeEntrega(int dia, int mes, int anio)
+void centrega::establecerFechaDeEntrega(int dia, int mes, int anio)
 {
 	FechaDeEntrega.tm_mday = dia;
 	FechaDeEntrega.tm_mon = mes;

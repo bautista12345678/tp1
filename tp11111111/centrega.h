@@ -6,7 +6,7 @@
 #include"EnumEtapaDeProyecto.h"
 #include"Cjefe.h"
 using namespace std;
-class Centrega
+class centrega
 {
 private:
 	EtapaDelProyecto NumeroDeEtapa;
@@ -15,9 +15,9 @@ private:
 	bool Aceptado;
 	int CantidadDeEntregas;
 public:
-	Centrega();
-	~Centrega();
-	void actualizar(Cjefe* jefe);
+	centrega();
+	~centrega();
+	void actualizar(cJefe* jefe);
 	void establecerFechaDeEntrega(int dia, int mes, int anio);
 
 

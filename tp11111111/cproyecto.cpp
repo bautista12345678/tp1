@@ -1,6 +1,6 @@
-#include "Cproyecto.h"
+#include "cproyecto.h"
 
-Cproyecto::Cproyecto(string nombre, string id)
+cproyecto::cproyecto(string nombre, string id)
 	:Nombre(nombre), IdDelProyecto(id)
 {
 	this->IdDelProyecto = " ";
@@ -13,66 +13,66 @@ Cproyecto::Cproyecto(string nombre, string id)
 		ListaDeEntregasRealizadas[CantidadDeEntregas] = nullptr;
 	}
 }
-Cproyecto::~Cproyecto()
+cproyecto::~cproyecto()
 {
 }
 
-string Cproyecto::getNombre()
+string cproyecto::getNombre()
 {
 	return this->Nombre;
 }
 
-string Cproyecto::getIdeDelProyecto()
+string cproyecto::getIdeDelProyecto()
 {
 	return this->IdDelProyecto;
 }
 
-int Cproyecto::getEstadoDeProyecto()
+int cproyecto::getEstadoDeProyecto()
 {
 	return this->EstadoDeProyecto;
 }
 
-int Cproyecto::getEtapaDeProyecto()
+int cproyecto::getEtapaDeProyecto()
 {
 	return this->EtapaDeProyecto;
 }
 
-cJefe* Cproyecto::getJefe()
+cJefe* cproyecto::getJefe()
 {
 	return this->Jefe;
 }
 
-int Cproyecto::getCantidadDeEntregas()
+int cproyecto::getCantidadDeEntregas()
 {
 	return this->CantidadDeEntregas;
 }
 
-void Cproyecto::setNombre(string nombre)
+void cproyecto::setNombre(string nombre)
 {
 	this->Nombre = nombre;
 }
 
-void Cproyecto::setIdeDelProyecto(string id)
+void cproyecto::setIdeDelProyecto(string id)
 {
 	this->IdDelProyecto = id;
 }
 
-void Cproyecto::setEstadoDeProyecto(EstadoDelProyecto estado)
+void cproyecto::setEstadoDeProyecto(EstadoDelProyecto estado)
 {
 	this->EstadoDeProyecto = estado;
 }
 
-void Cproyecto::setEtapaDeProyecto(EtapaDelProyecto etapa)
+void cproyecto::setEtapaDeProyecto(EtapaDelProyecto etapa)
 {
 	this->EtapaDeProyecto = etapa;
 }
 
-void Cproyecto::setJefe(Cjefe* jefe)
+void cproyecto::setJefe(cJefe* jefe)
 {
 	this->Jefe = jefe;
 }
 
-void Cproyecto::ImprimirListaDeEntregasRealizadas()
+void cproyecto::ImprimirListaDeEntregasRealizadas()
 {
 	if (ListaDeEntregasRealizadas[CantidadDeEntregas] == nullptr)
 	{
@@ -87,7 +87,7 @@ void Cproyecto::ImprimirListaDeEntregasRealizadas()
 	}
 }
 
-void Cproyecto::imprimirEstadoDelProyecto()
+void cproyecto::imprimirEstadoDelProyecto()
 {
 	switch (EstadoDeProyecto)
 	{
@@ -105,7 +105,7 @@ void Cproyecto::imprimirEstadoDelProyecto()
 	}
 }
 
-void Cproyecto::imprimirEtapaDelProyecto()
+void cproyecto::imprimirEtapaDelProyecto()
 {
 	switch (EtapaDeProyecto)
 	{
@@ -123,26 +123,26 @@ void Cproyecto::imprimirEtapaDelProyecto()
 	}
 }
 
-void Cproyecto::EstablecerFechaDeInicioDeProyecto(int dia, int mes, int anio)
+void cproyecto::EstablecerFechaDeInicioDeProyecto(int dia, int mes, int anio)
 {
 	FechaDeInicioDelProyecto.tm_mday = dia;
 	FechaDeInicioDelProyecto.tm_mon = mes;
 	FechaDeInicioDelProyecto.tm_year = anio;
 }
 
-void Cproyecto::EstablecerFechaDeFinDeProyecto(int dia, int mes, int anio)
+void cproyecto::EstablecerFechaDeFinDeProyecto(int dia, int mes, int anio)
 {
 	FechaPropuestaDeFinalDelProyecto.tm_mday = dia;
 	FechaPropuestaDeFinalDelProyecto.tm_mon = mes;
 	FechaPropuestaDeFinalDelProyecto.tm_year = anio;
 }
 
-void Cproyecto::EstablecerNombreDelProyecto(string nombre)
+void cproyecto::EstablecerNombreDelProyecto(string nombre)
 {
 	this->Nombre = nombre;
 }
 
-void Cproyecto::ImprimirFechaDeInicioDeProyecto()
+void cproyecto::ImprimirFechaDeInicioDeProyecto()
 {
 	cout << "fecha de inicio del proyecto: "
 		<< FechaDeInicioDelProyecto.tm_mday << " - "
@@ -150,7 +150,7 @@ void Cproyecto::ImprimirFechaDeInicioDeProyecto()
 		<< FechaDeInicioDelProyecto.tm_year << endl;
 }
 
-void Cproyecto::ImprimirerFechaDeFinDeProyecto()
+void cproyecto::ImprimirerFechaDeFinDeProyecto()
 {
 	cout << "fecha final del proyecto: "
 		<< FechaPropuestaDeFinalDelProyecto.tm_mday << " - "
@@ -158,20 +158,20 @@ void Cproyecto::ImprimirerFechaDeFinDeProyecto()
 		<< FechaPropuestaDeFinalDelProyecto.tm_year << endl;
 }
 
-void Cproyecto::ImprimirNombreDelProyecto()
+void cproyecto::ImprimirNombreDelProyecto()
 {
 	cout << "el nombre del proyecto es: " << Nombre << endl;
 }
 
-void Cproyecto::tostring()
+void cproyecto::tostring()
 {
 }
 
-void Cproyecto::ReasignarProyecto()
+void cproyecto::ReasignarProyecto()
 {
 }
 
-void Cproyecto::RecibirEntrega(Centrega* entrega)
+void cproyecto::RecibirEntrega(centrega* entrega)
 {
 	ListaDeEntregasRealizadas[CantidadDeEntregas] = entrega;
 }

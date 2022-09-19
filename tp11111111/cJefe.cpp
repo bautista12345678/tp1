@@ -7,21 +7,21 @@ cJefe::cJefe(string _nombre, string _apellido, string _DNI, string _telefono, bo
 	DNI = _DNI;
 	telefono = _telefono;
 	disponible = _disponible;
-	/*for(int i=0;i<this->CantidadMaximaDeProyectos();i++)
+	for(int i=0;i<this->CantidadMaximaDeProyectos;i++)
 	{
-	this->lista_proyectos[i]=nullptr;
+	this->listaDeProyectos[i]=nullptr;
 	}
 
 	for(int i=0;i<3;i++)
 	{
 	this->listaDeProgramadores[i]=nullptr;
 	}
-	*/
+	
 }
 
 cJefe::~cJefe()
 {
-	/*for(int i=0;i<this->CantidadMaximaDeProyectos;i++)
+   for(int i=0;i<this->CantidadMaximaDeProyectos;i++)
 	{
 	this->listaDeProyectos[i]=nullptr;
 	}
@@ -32,7 +32,7 @@ cJefe::~cJefe()
 	this->listaDeProgramadores[i]=nullptr;
 	}
 	delete listaDeProgramadores;
-	*/
+	
 }
 
 void cJefe::setnombre(string _nombre)
@@ -122,65 +122,62 @@ void cJefe::imprimir() {
 	cout << to_string() << endl;
 }
 
-/*
 
 
-void cJefe::setlistaDeProyectos(cproyectos **_listaDeProyectos)
+
+void cJefe::setlistaDeProyectos(cproyecto **_listaDeProyectos)
 {
     listaDeProyectos=_listaDeProyectos;
- }
-cproyectos cJefe::getlistaDeProyectos()
-{
-	 return listaDeProyectos;
 }
 
-void cJefe::setlistaDeProgramadores(cProgramadores **_listaDeProgramadores)
+
+void cJefe::setlistaDeProgramadores(cProgramador **_listaDeProgramadores)
 {
-listaDeProgramadores=_listaDeProgramadores;
-}
-cProgramadores cJefe::getlistaDeProgramadores()
-{
- return listaDeProgramadores;
+    listaDeProgramadores=_listaDeProgramadores;
 }
 
-void AsignarProyecto(cproyecto* pro)
+
+void cJefe::AsignarProyecto(cproyecto* pro)
 {
- if(this->disponible==true9)
+ if(this->disponible==true)
  {
-  for(int i=0;i<this->CantidadActualDeProyectos();i++)
+  for(int i=0;i<CantidadActualDeProyectos;i++)
 	 {
-	 this->listaDeProyectos[getCantidadActualDeProyectos()]=pro;
+	 this->listaDeProyectos[this->CantidadActualDeProyectos]=pro;
 	 }
  }else
   {
    cout << this->nombre<< " "<< " "<<this->apellido<<" no esta disponible"<<endl;
   }
 }
-void ReasignarProgramador(Jefe*j,cProgrmador * progra)
+void cJefe::ReasignarProgramador(cJefe* j, cProgramador* progra)
 {
  for(int i=0;i<3;i++)
   {
-   if(progra->apellido==listaDeProgramadores[i]->apellido)
+   if(progra->getapellido()==listaDeProgramadores[i]->getapellido())
    {
-    progra->setjefe(j);
+    progra->setJefe(j);
 	this->listaDeProgramadores[i]=nullptr;
    }
 
   }
 }
-void RevisarEntrega(cproyecto * pro,centrega * ent)
+void cJefe::RevisarEntrega(cproyecto * pro,centrega * ent)
 {
  for(int i=0;i<this->CantidadActualDeProyectos;i++)
   {
-   if(pro->nombre==this->listaDeProyectos[i]->nombre)
+   if(pro->getNombre()==this->listaDeProyectos[i]->getNombre())
    {
-     pro->RecibirEntrega(ent)
+	   pro->RecibirEntrega(ent);
    }
 
   }
 }
-cproyecto FinProyecto();
-void CambiarFechaFin(tm fe,cproyecto * pro);
+cproyecto cJefe::FinProyecto()
+{
+}
+void cJefe::CambiarFechaFin(tm fe,cproyecto * pro)
+{
+}
 
 
-*/

@@ -1,57 +1,59 @@
 #include "cProgramador.h"
 #include <sstream>
-cProgramador::cProgramador(string _nombre,string _apellido,tm _fecha_de_nacimiento,string _telefono,bool _horario)
+cProgramador::cProgramador(string _nombre,string _apellido,tm _fecha_de_nacimiento,string _telefono,bool _horario,cJefe *_Jefe)
 {
 	nombre = _nombre;
 	apellido = _apellido;
 	fecha_de_nacimiento = _fecha_de_nacimiento;
 	telefono = _telefono;
 	horario = _horario;
-	/*for(int i=0;i<getCantidadMaximaDeProyectos();i++)
+	Jefe = _Jefe;
+	for(int i=0;i<Jefe->getCantidadMaximaDeProyectos();i++)
 	{
-	this->*lista_proyectos[i]=nullptr;
+	this->lista_proyectos[i]=nullptr;
 	}
-	*/
+	
+
 }
 
 cProgramador::~cProgramador()
 {
-	/*for(int i=0;i<getCantidadMaximaDeProyectos();i++)
+	for(int i=0;i<Jefe->getCantidadMaximaDeProyectos();i++)
 	{
 	this->lista_proyectos[i]=nullptr;
 	}
 	delete lista_proyectos;
-	*/
+	
 }
-/*void cProgramador::AsignarProyecto(cproyecto * pro)
+void cProgramador::AsignarProyecto(cproyecto * pro)
  {
    if(this->gethorario()==true)
    {
-     for(int i=0;i<getCantidadActualDeProyectos();i++)
+     for(int i=0;i<Jefe->getCantidadActualDeProyectos();i++)
 	 {
-	 this->lista_proyectos[getCantidadActualDeProyectos()]=pro;
+	 this->lista_proyectos[Jefe->getCantidadActualDeProyectos()]=pro;
 	 }
    }else 
     {
 	 cout<<"El programador no se encuentra disponible"<<endl;
-	 break 0;
+	
 	}
 
  }
-void cProgramador::EntregarProyecto(centrega* entr)
+void cProgramador::EntregarProyecto(centrega* entr,cproyecto * pro)
  {
- 
-  entr->actualizar(j);
-   j->revisarEntrega(pro);
+
+   Jefe->RevisarEntrega(pro,entr);
+   entr->actualizar(Jefe);
 
  }
 
  cproyecto cProgramador::FinProyecto(cproyecto*pro)
  {
   pro=nullptr;
-  return pro;
+  return *pro;
  }
- */
+ 
 
 string cProgramador::to_string() {
 	stringstream ss;
@@ -72,6 +74,11 @@ void cProgramador::setnombre(string _nombre)
 string cProgramador::getnombre()
 {
 	return nombre;
+}
+
+void cProgramador::setJefe(cJefe *_Jefe)
+{
+	Jefe = _Jefe;
 }
 
 void cProgramador::setapellido(string _apellido)
@@ -120,12 +127,8 @@ void cProgramador::imprimir() {
 	cout << to_string() << endl;
 }
 
-/*void cProgramador::setlista_proyectos(cproyectos** _lista_proyectos)
+void cProgramador::setlista_proyectos(cproyecto** _lista_proyectos)
  {
- listaproyectos=_listaproyectos;
+ lista_proyectos=_lista_proyectos;
  }
-cproyectos getlista_proyectos()
-{
-return lista_proyectos;
-}
-*/
+
