@@ -46,6 +46,6 @@ public:
 	void ReasignarProgramador(cJefe*j, cProgramador* progra);
 	void RevisarEntrega(cproyecto * pro, centrega* ent);
 	cproyecto FinProyecto();
-	void CambiarFechaFin(tm fe,cproyecto * pro);
+	void CambiarFechaFin(int dia, int mes, int anio, cproyecto* pro);
 };
 

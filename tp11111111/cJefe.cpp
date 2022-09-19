@@ -169,6 +169,12 @@ void cJefe::RevisarEntrega(cproyecto * pro,centrega * ent)
    if(pro->getNombre()==this->listaDeProyectos[i]->getNombre())
    {
 	   pro->RecibirEntrega(ent);
+	   pro->setEstadoDeProyecto(ent->getestado());
+	   pro->setEtapaDeProyecto(ent->getNumeroDeEtapa());
+	   if (ent->getCantidadDeEntregas() == 2)
+	   {
+
+	   }
    }
 
   }
@@ -176,8 +182,9 @@ void cJefe::RevisarEntrega(cproyecto * pro,centrega * ent)
 cproyecto cJefe::FinProyecto()
 {
 }
-void cJefe::CambiarFechaFin(tm fe,cproyecto * pro)
+void cJefe::CambiarFechaFin(int dia,int mes, int anio,cproyecto * pro)
 {
+	pro->EstablecerFechaDeFinDeProyecto(dia,mes,anio);
 }
 
 
