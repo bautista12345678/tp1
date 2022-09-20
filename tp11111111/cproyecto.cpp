@@ -1,5 +1,5 @@
 #include "cproyecto.h"
-
+#include <sstream>
 cproyecto::cproyecto(string nombre, string id)
 	:Nombre(nombre), IdDelProyecto(id)
 {
@@ -163,12 +163,10 @@ void cproyecto::ImprimirNombreDelProyecto()
 	cout << "el nombre del proyecto es: " << Nombre << endl;
 }
 
-void cproyecto::tostring()
-{
-}
 
-void cproyecto::ReasignarProyecto()
+void cproyecto::ReasignarProyecto(cJefe*j)
 {
+	this->setJefe(j);
 }
 
 void cproyecto::RecibirEntrega(centrega* entrega)
@@ -176,3 +174,20 @@ void cproyecto::RecibirEntrega(centrega* entrega)
 	ListaDeEntregasRealizadas[CantidadDeEntregas] = entrega;
 }
 
+string cproyecto::to_string() {
+	stringstream ss;
+	ss << "nombre: " << this->Nombre << endl;
+	//ss << "FechaDeInicioDelProyecto: " << this->FechaDeInicioDelProyecto << endl;
+	//ss << "FechaPropuestaDeFinalDelProyecto:" << this->FechaPropuestaDeFinalDelProyecto << endl;
+	ss << "IdDelProyecto:: " << this->IdDelProyecto << endl;
+	ss << "EstadoDeProyecto:: " << this->EstadoDeProyecto << endl;
+	ss << "EtapaDeProyecto: " << this->EtapaDeProyecto << endl;
+	ss << "jefe: " << this->Jefe->getapellido() << endl;
+	ss << "ListaDeEntregasRealizadas:: " << this->ListaDeEntregasRealizadas << endl;
+	ss << "CantidadDeEntregas: " << this->CantidadDeEntregas << endl;
+	return ss.str();
+	return "error";
+}
+void cJefe::imprimir() {
+	cout << to_string() << endl;
+}

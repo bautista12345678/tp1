@@ -13,8 +13,22 @@ centrega::~centrega()
 {
 }
 
-void centrega::actualizar(cJefe* jefe)
+void centrega::actualizar(cJefe* jefe,int dia,int mes,int anio,int c)
 {
+	FechaDeEntrega.tm_mday = dia;
+	FechaDeEntrega.tm_mon = mes;
+	FechaDeEntrega.tm_year = anio;
+	setFechaDeEntrega(FechaDeEntrega);
+	this->setCantidadDeEntregas(c);
+	if (this->Aceptado == true)
+	{
+		this->setestado(FINALIZADO);
+	}
+	else
+	{
+		cout << "Soliciud de reentrega ," << jefe->getnombre() << " " << jefe->getapellido() << endl;
+	}
+
 }
 
 void centrega::establecerFechaDeEntrega(int dia, int mes, int anio)

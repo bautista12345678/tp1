@@ -7,6 +7,7 @@ cJefe::cJefe(string _nombre, string _apellido, string _DNI, string _telefono, bo
 	DNI = _DNI;
 	telefono = _telefono;
 	disponible = _disponible;
+	cant_programadores = 0;
 	for(int i=0;i<this->CantidadMaximaDeProyectos;i++)
 	{
 	this->listaDeProyectos[i]=nullptr;
@@ -86,6 +87,19 @@ bool cJefe::getdisponible()
 {
 	return disponible;
 }
+void cJefe::setcant_programadores(int _cant_programadores)
+{
+	cant_programadores = _cant_programadores;
+}
+
+int cJefe::getcant_programadores()
+{
+	return cant_programadores;
+}
+bool cJefe::getdisponible()
+{
+	return disponible;
+}
 
 void cJefe::setCantidadMaximaDeProyectos(int _CantidadMaximaDeProyectos)
 {
@@ -125,15 +139,15 @@ void cJefe::imprimir() {
 
 
 
-void cJefe::setlistaDeProyectos(cproyecto **_listaDeProyectos)
-{
-    listaDeProyectos=_listaDeProyectos;
-}
 
 
-void cJefe::setlistaDeProgramadores(cProgramador **_listaDeProgramadores)
+
+void cJefe::setlistaDeProgramadores(cProgramador *_listaDeProgramadores)
 {
-    listaDeProgramadores=_listaDeProgramadores;
+	for (int i = 0; i < 3; i++)
+	{
+		listaDeProgramadores[this->cant_programadores] = _listaDeProgramadores;
+	}
 }
 
 
@@ -173,14 +187,19 @@ void cJefe::RevisarEntrega(cproyecto * pro,centrega * ent)
 	   pro->setEtapaDeProyecto(ent->getNumeroDeEtapa());
 	   if (ent->getCantidadDeEntregas() == 2)
 	   {
-
+		   pro->setEtapaDeProyecto(PRIMERA_ETAPA);
 	   }
    }
 
   }
 }
-cproyecto cJefe::FinProyecto()
+cproyecto cJefe::FinProyecto(centrega * ent,cproyecto * pro)
 {
+	if (ent->getNumeroDeEtapa() == 4)
+	{
+		pro=nullptr;
+	}
+	return *pro;
 }
 void cJefe::CambiarFechaFin(int dia,int mes, int anio,cproyecto * pro)
 {

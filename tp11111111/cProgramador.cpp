@@ -1,10 +1,12 @@
 #include "cProgramador.h"
 #include <sstream>
-cProgramador::cProgramador(string _nombre,string _apellido,tm _fecha_de_nacimiento,string _telefono,bool _horario,cJefe *_Jefe)
+cProgramador::cProgramador(string _nombre,string _apellido, int _dia, int _mes, int _anio,string _telefono,bool _horario,cJefe *_Jefe)
 {
 	nombre = _nombre;
 	apellido = _apellido;
-	fecha_de_nacimiento = _fecha_de_nacimiento;
+	fecha_de_nacimiento.tm_mday = _dia;
+	fecha_de_nacimiento.tm_mon = _mes;
+	fecha_de_nacimiento.tm_year = _anio;
 	telefono = _telefono;
 	horario = _horario;
 	Jefe = _Jefe;
@@ -40,11 +42,10 @@ void cProgramador::AsignarProyecto(cproyecto * pro)
 	}
 
  }
-void cProgramador::EntregarProyecto(centrega* entr,cproyecto * pro)
+void cProgramador::EntregarProyecto(centrega* entr,cproyecto * pro, cJefe* jefe, int dia, int mes, int anio, int c)
  {
-
-   Jefe->RevisarEntrega(pro,entr);
-   entr->actualizar(Jefe);
+   this->Jefe->RevisarEntrega(pro,entr);
+   entr->actualizar(jefe,dia, mes,anio,  c);
 
  }
 
@@ -131,4 +132,6 @@ void cProgramador::setlista_proyectos(cproyecto** _lista_proyectos)
  {
  lista_proyectos=_lista_proyectos;
  }
+
+
 

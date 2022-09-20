@@ -19,7 +19,7 @@ private:
 	string IdDelProyecto;// distingue los proyectos
 	EstadoDelProyecto EstadoDeProyecto; // espera=0, desarrollo=1,finalizado=2
 	EtapaDelProyecto EtapaDeProyecto; //
-	cJefe* Jefe;
+	cJefe *Jefe;
 	centrega** ListaDeEntregasRealizadas;
 	int CantidadDeEntregas;
 public:
@@ -49,9 +49,9 @@ public:
 	void ImprimirFechaDeInicioDeProyecto();
 	void ImprimirerFechaDeFinDeProyecto();
 	void ImprimirNombreDelProyecto();
-	void tostring();// (falta implementar)
+	string to_string();
 	//-------------------------------
-	void ReasignarProyecto();// (falta implementar)    // Reapunta el puntero Líder al nuevo jefe del proyecto que recibe por parámetro
+	void ReasignarProyecto(cJefe* j);// (falta implementar)    // Reapunta el puntero Líder al nuevo jefe del proyecto que recibe por parámetro
 	void RecibirEntrega(centrega* entrega);//agrega la entrega a la lista
 
 };

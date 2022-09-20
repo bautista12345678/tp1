@@ -20,6 +20,7 @@ private:
 	int CantidadMaximaDeProyectos;
 	int CantidadActualDeProyectos;
 	cProgramador **listaDeProgramadores;
+	int cant_programadores;
 public:
 	cJefe(string _nombre, string _apellido, string _DNI, string _telefono, bool
 		_disponible,int _CantidadMaximaDeProyectos, int _CantidadActualDeProyectos);
@@ -34,18 +35,19 @@ public:
 	string getDNI();
 	void setdisponible(bool _disponible);
 	bool getdisponible();
-	void setlistaDeProyectos(cproyecto **_listaDeProyectos);
 	void setCantidadMaximaDeProyectos(int _CantidadMaximaDeProyectos);
 	int getCantidadMaximaDeProyectos();
 	void setCantidadActualDeProyectos(int _CantidadActualDeProyectos);
 	int getCantidadActualDeProyectos();
-	void setlistaDeProgramadores(cProgramador **_listaDeProgramadores);
+	void setlistaDeProgramadores(cProgramador *_listaDeProgramadores);
+	void setcant_programadores(int _cant_programadores);
+	int getcant_programadores();
 	void imprimir();
 	string to_string();
 	void AsignarProyecto(cproyecto* pro);
 	void ReasignarProgramador(cJefe*j, cProgramador* progra);
 	void RevisarEntrega(cproyecto * pro, centrega* ent);
-	cproyecto FinProyecto();
+	cproyecto FinProyecto(centrega* ent, cproyecto* pro);
 	void CambiarFechaFin(int dia, int mes, int anio, cproyecto* pro);
 };
 

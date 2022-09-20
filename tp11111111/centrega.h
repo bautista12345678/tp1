@@ -18,7 +18,7 @@ private:
 public:
 	centrega();
 	~centrega();
-	void actualizar(cJefe* jefe);
+	void actualizar(cJefe* jefe, int dia, int mes, int anio, int c);
 	void establecerFechaDeEntrega(int dia, int mes, int anio);
 	void setNumeroDeEtapa(EtapaDelProyecto _NumeroDeEtapa);
 	void setIDdelProyecto(string _IDdelProyecto);
